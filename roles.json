@@ -1,0 +1,36 @@
+{
+    "software_developer": [
+        "software developer",
+        "software engineer",
+        "sde",
+        "sde 1",
+        "sde-1"
+    ],
+
+    "backend_developer": [
+        "backend developer",
+        "backend engineer"
+    ],
+
+    "frontend_developer": [
+        "frontend developer",
+        "frontend engineer"
+    ],
+
+    "data_scientist": [
+        "data scientist"
+    ],
+
+    "machine_learning_engineer": [
+        "machine learning engineer",
+        "ml engineer"
+    ],
+
+    "data_engineer": [
+        "data engineer"
+    ],
+
+    "devops_engineer": [
+        "devops engineer"
+    ]
+}

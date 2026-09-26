@@ -1,0 +1,114 @@
+{
+    "programming_languages": [
+        "python",
+        "c++",
+        "java",
+        "javascript",
+        "typescript",
+        "go",
+        "rust",
+        "kotlin",
+        "swift",
+        "php",
+        "ruby"
+    ],
+
+    "web_development": [
+        "html",
+        "css",
+        "react",
+        "angular",
+        "vue",
+        "node.js",
+        "express.js",
+        "next.js",
+        "tailwind css"
+    ],
+
+    "databases": [
+        "sql",
+        "mysql",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "sqlite",
+        "oracle"
+    ],
+
+    "machine_learning": [
+        "machine learning",
+        "deep learning",
+        "data science",
+        "natural language processing",
+        "computer vision",
+        "pandas",
+        "numpy",
+        "scipy",
+        "scikit-learn",
+        "tensorflow",
+        "pytorch",
+        "keras",
+        "opencv"
+    ],
+
+    "generative_ai": [
+        "generative ai",
+        "large language models",
+        "llm",
+        "langchain",
+        "langgraph",
+        "hugging face",
+        "transformers",
+        "rag",
+        "retrieval augmented generation",
+        "prompt engineering",
+        "vector database",
+        "embeddings"
+    ],
+
+    "cloud_devops": [
+        "aws",
+        "azure",
+        "google cloud",
+        "docker",
+        "kubernetes",
+        "jenkins",
+        "terraform",
+        "ci/cd"
+    ],
+
+    "tools": [
+        "git",
+        "github",
+        "gitlab",
+        "linux",
+        "bash",
+        "postman"
+    ],
+
+    "backend": [
+        "rest api",
+        "fastapi",
+        "flask",
+        "django",
+        "graphql"
+    ],
+
+    "core_cs": [
+        "data structures",
+        "algorithms",
+        "object oriented programming",
+        "operating systems",
+        "computer networks",
+        "database management systems",
+        "dbms",
+        "system design"
+    ],
+
+    "other": [
+        "problem solving",
+        "competitive programming",
+        "unit testing",
+        "debugging"
+    ]
+}

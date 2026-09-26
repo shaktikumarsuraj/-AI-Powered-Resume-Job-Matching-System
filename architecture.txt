@@ -1,0 +1,452 @@
+======================================================================
+          AI-POWERED RESUME – JOB MATCHING SYSTEM
+                    COMPLETE ARCHITECTURE
+======================================================================
+
+
+                         ┌─────────────────────┐
+                         │      RECRUITER      │
+                         └──────────┬──────────┘
+                                    │
+                                    ↓
+                     ┌──────────────────────────┐
+                     │      JOB INPUT LAYER     │
+                     └────────────┬─────────────┘
+                                  │
+                    ┌─────────────┴─────────────┐
+                    │                           │
+                    ↓                           ↓
+        ┌─────────────────────┐      ┌────────────────────────┐
+        │ Natural Language JD │      │ Structured Job Input   │
+        │                     │      │                        │
+        │ "We need a Backend  │      │ • Job Role             │
+        │ Developer..."       │      │ • Required Skills      │
+        │                     │      │ • Preferred Skills     │
+        └──────────┬──────────┘      │ • Job Description       │
+                   │                 └────────────┬───────────┘
+                   │                              │
+                   └──────────────┬───────────────┘
+                                  ↓
+                     ┌──────────────────────────┐
+                     │ Job Description          │
+                     │ Processing                │
+                     └────────────┬─────────────┘
+                                  │
+             ┌────────────────────┼────────────────────┐
+             │                    │                    │
+             ↓                    ↓                    ↓
+       Role Detection       Skill Extraction    Priority Detection
+             │                    │                    │
+             ↓                    ↓                    ↓
+       Role Normalization   Required Skills     Required Skills
+             │              Preferred Skills     Preferred Skills
+             ↓                    │               Unspecified
+       Role Representation       │
+                                  │
+                                  ↓
+                     Experience Requirement
+                           Extraction
+                                  │
+                                  ↓
+                    Required Experience
+                       • Skill
+                       • Years
+                       • Requirement Type
+
+
+======================================================================
+                         RESUME PIPELINE
+======================================================================
+
+
+                         ┌─────────────────────┐
+                         │     CANDIDATE       │
+                         └──────────┬──────────┘
+                                    │
+                                    ↓
+                         ┌─────────────────────┐
+                         │     RESUME PDF      │
+                         └──────────┬──────────┘
+                                    │
+                                    ↓
+                    ┌────────────────────────────┐
+                    │     PDF TEXT EXTRACTION    │
+                    │                            │
+                    │   Extract raw resume text  │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │      TEXT PREPROCESSING    │
+                    │                            │
+                    │ • Cleaning                 │
+                    │ • Normalization            │
+                    │ • Noise reduction          │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │    RESUME SECTION PARSER   │
+                    │                            │
+                    │ • General                  │
+                    │ • Technical Skills         │
+                    │ • Experience               │
+                    │ • Projects                 │
+                    │ • Achievements             │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │     SECTION-WISE SKILLS    │
+                    │                            │
+                    │ • Technical Skills         │
+                    │ • Experience Skills        │
+                    │ • Project Skills            │
+                    │ • General Skills            │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │      SKILL EXTRACTION      │
+                    │                            │
+                    │ • Programming Languages    │
+                    │ • Frameworks               │
+                    │ • Tools                    │
+                    │ • Databases                │
+                    │ • ML / AI                  │
+                    │ • Core CS                  │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │     SKILL KNOWLEDGE BASE   │
+                    │                            │
+                    │ • Skill Categories         │
+                    │ • Skill Patterns           │
+                    │ • Skill Normalization      │
+                    │ • Role Aliases             │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                         Resume Skill Set
+
+
+======================================================================
+                       MATCHING / ANALYSIS LAYER
+======================================================================
+
+
+             RESUME INFORMATION             JOB INFORMATION
+                    │                              │
+                    │                              │
+                    └──────────────┬───────────────┘
+                                   ↓
+                    ┌────────────────────────────┐
+                    │      MATCHING ENGINE       │
+                    └─────────────┬──────────────┘
+                                  │
+              ┌───────────────────┼────────────────────┐
+              │                   │                    │
+              ↓                   ↓                    ↓
+      ┌───────────────┐   ┌────────────────┐   ┌─────────────────┐
+      │ ROLE MATCHING │   │ SKILL MATCHING │   │ CATEGORY MATCH  │
+      └───────┬───────┘   └───────┬────────┘   └────────┬────────┘
+              │                   │                     │
+              │                   │                     │
+              ↓                   ↓                     ↓
+       Detected Role       Matched Skills         Matched Categories
+       Normalized Role     Missing Skills         Missing Categories
+       Role Match Status   Skill Coverage         Category Coverage
+
+
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │     PRIORITY ANALYSIS     │
+                    │                            │
+                    │ Required Skills            │
+                    │ Preferred Skills           │
+                    │ Missing Required            │
+                    │ Missing Preferred           │
+                    │ Priority Coverage           │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ↓
+                    ┌────────────────────────────┐
+                    │   EXPERIENCE ANALYSIS      │
+                    └─────────────┬──────────────┘
+                                  │
+                   ┌──────────────┴──────────────┐
+                   │                             │
+                   ↓                             ↓
+          Resume Experience              JD Requirements
+                   │                             │
+                   ↓                             ↓
+          Experience Entries            Required Years
+                   │                             │
+                   └──────────────┬──────────────┘
+                                  ↓
+                    ┌────────────────────────────┐
+                    │ EXPERIENCE DURATION        │
+                    │ COMPARISON                  │
+                    │                            │
+                    │ • Required Years           │
+                    │ • Resume Months            │
+                    │ • Met                       │
+                    │ • Not Met                   │
+                    │ • Unknown                   │
+                    └─────────────┬──────────────┘
+
+
+======================================================================
+                         EVIDENCE ANALYSIS
+======================================================================
+
+
+                         Matched Skills
+                              │
+                              ↓
+                 ┌──────────────────────────┐
+                 │     EVIDENCE ENGINE      │
+                 └────────────┬─────────────┘
+                              │
+             ┌────────────────┼────────────────┐
+             │                │                │
+             ↓                ↓                ↓
+      Skill Evidence    Project Evidence   Experience Evidence
+             │                │                │
+             ↓                ↓                ↓
+      Technical Skill    Actual Projects    Actual Experience
+             │                │                │
+             └────────────────┼────────────────┘
+                              ↓
+                 ┌──────────────────────────┐
+                 │    EVIDENCE STRENGTH     │
+                 │                          │
+                 │ • Strong                 │
+                 │ • Supporting             │
+                 │ • Weak / unavailable     │
+                 └────────────┬─────────────┘
+                              │
+                              ↓
+                    Evidence Summary
+
+
+======================================================================
+                       TEXT SIMILARITY LAYER
+======================================================================
+
+
+                ┌──────────────────────────────┐
+                │    RESUME + JOB DESCRIPTION  │
+                └──────────────┬───────────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+                 ↓                           ↓
+        ┌─────────────────┐        ┌────────────────────────┐
+        │    TF-IDF       │        │ Sentence Transformers  │
+        │    Similarity   │        │                        │
+        └────────┬────────┘        └────────────┬───────────┘
+                 │                              │
+                 ↓                              ↓
+          TF-IDF Score                  Semantic Embeddings
+                                                │
+                                                ↓
+                                      Semantic Similarity
+                                                │
+                 └────────────────┬─────────────┘
+                                  ↓
+                         Text Similarity Scores
+
+
+======================================================================
+                    FINAL MATCHING FRAMEWORK
+======================================================================
+
+
+              ┌────────────────────────────────────┐
+              │      FINAL MATCHING ANALYSIS       │
+              └─────────────────┬──────────────────┘
+                                │
+         ┌──────────────────────┼───────────────────────┐
+         │                      │                       │
+         ↓                      ↓                       ↓
+    Role Analysis         Skill Analysis        Experience Analysis
+         │                      │                       │
+         ↓                      ↓                       ↓
+    Role Status          Required Skills        Experience Status
+                         Preferred Skills        Duration
+                         Missing Skills          Requirements
+                         Coverage
+         │                      │                       │
+         └──────────────────────┼───────────────────────┘
+                                │
+                                ↓
+                  ┌────────────────────────────┐
+                  │     FINAL ASSESSMENT       │
+                  │                            │
+                  │ • Role Status              │
+                  │ • Required Skill Status    │
+                  │ • Preferred Skill Status   │
+                  │ • Experience Status        │
+                  │ • Evidence Availability    │
+                  │ • Similarity Scores        │
+                  └─────────────┬──────────────┘
+                                │
+                                ↓
+                  ┌────────────────────────────┐
+                  │    MATCHING INSIGHTS       │
+                  │                            │
+                  │ • Strengths                │
+                  │ • Missing Skills           │
+                  │ • Experience Gaps          │
+                  │ • Evidence Availability    │
+                  │ • Similarity Interpretation│
+                  └─────────────┬──────────────┘
+
+
+======================================================================
+                         FINAL OUTPUT
+======================================================================
+
+
+                    ┌──────────────────────────┐
+                    │    FINAL REPORT ENGINE   │
+                    └────────────┬─────────────┘
+                                 │
+          ┌──────────────────────┼───────────────────────┐
+          │                      │                       │
+          ↓                      ↓                       ↓
+    Role Analysis          Skill Matching         Experience
+    • Detected Role        • Matched Skills       • Required Years
+    • Normalized Role      • Missing Skills       • Resume Duration
+    • Role Status          • Coverage             • Status
+          │                      │                       │
+          └──────────────────────┼───────────────────────┘
+                                 │
+                    ┌────────────┴────────────┐
+                    │                         │
+                    ↓                         ↓
+             Evidence Report          Similarity Report
+             • Skill Evidence          • TF-IDF
+             • Project Evidence        • Semantic
+             • Experience Evidence
+                    │                         │
+                    └────────────┬────────────┘
+                                 ↓
+                         Matching Insights
+                                 │
+                                 ↓
+                    ┌──────────────────────────┐
+                    │       WEB DASHBOARD       │
+                    │        (Streamlit)        │
+                    └──────────────────────────┘
+                                 │
+                                 ↓
+              ┌─────────────────────────────────────┐
+              │          USER / RECRUITER            │
+              │                                     │
+              │  • Match Overview                   │
+              │  • Role Match                       │
+              │  • Skill Coverage                   │
+              │  • Missing Skills                   │
+              │  • Experience Requirements          │
+              │  • Evidence                         │
+              │  • TF-IDF Score                     │
+              │  • Semantic Score                   │
+              │  • Category Analysis                │
+              │  • Matching Insights                │
+              └─────────────────────────────────────┘
+
+
+======================================================================
+                         COMPLETE FLOW
+======================================================================
+
+
+Recruiter
+   │
+   ↓
+Job Input
+   │
+   ├── Natural Language JD
+   │
+   └── Structured Job Template
+          │
+          ├── Role
+          ├── Required Skills
+          ├── Preferred Skills
+          └── Job Description
+   │
+   ↓
+Job Description Processing
+   │
+   ├── Role Detection
+   ├── Role Normalization
+   ├── Skill Extraction
+   ├── Priority Detection
+   └── Experience Requirement Extraction
+   │
+   │
+   │                         Candidate
+   │                            │
+   │                            ↓
+   │                       Resume PDF
+   │                            │
+   │                            ↓
+   │                    PDF Text Extraction
+   │                            │
+   │                            ↓
+   │                     Text Preprocessing
+   │                            │
+   │                            ↓
+   │                    Section Parsing
+   │                            │
+   │                            ↓
+   │                    Skill Extraction
+   │                            │
+   │                            ↓
+   │                     Skill Categories
+   │
+   └──────────────────────┬────────────────────────────┘
+                          ↓
+                  ┌──────────────────┐
+                  │  MATCHING ENGINE │
+                  └────────┬─────────┘
+                           │
+          ┌────────────────┼─────────────────┐
+          │                │                 │
+          ↓                ↓                 ↓
+     Role Matching    Skill Matching    Experience Matching
+          │                │                 │
+          ↓                ↓                 ↓
+     Role Status      Coverage          Duration Comparison
+                           │
+                           ↓
+                    Evidence Analysis
+                           │
+              ┌────────────┼────────────┐
+              ↓            ↓            ↓
+           Skills       Projects    Experience
+              │            │            │
+              └────────────┼────────────┘
+                           ↓
+                    Text Similarity
+                           │
+                  ┌────────┴────────┐
+                  ↓                 ↓
+                TF-IDF       Sentence Transformers
+                  │                 │
+                  └────────┬────────┘
+                           ↓
+                  Final Assessment
+                           │
+                           ↓
+                  Matching Insights
+                           │
+                           ↓
+                    Final Report
+                           │
+                           ↓
+                   Streamlit Dashboard

@@ -1,0 +1,31 @@
+Resume PDF
+     ↓
+Text Extraction
+     ↓
+NLP preprocessing
+     ↓
+Skill / keyword extraction
+     ↓
+Embeddings
+     ↓
+Similarity Model
+     ↓
+Match Score
+     ↓
+Missing Skills
+     ↓
+Personalized Suggestions
+
+AI-Powered Resume–Job Matching System/
+│
+├── read.py
+├── preprocess.py
+├── matcher.py
+├── skills.py
+├── main.py
+│
+├── data/
+│   ├── resumes/
+│   └── jobs/
+│
+└── requirements.txt
